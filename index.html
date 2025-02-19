@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote Generator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #quote-container {
+            background-image: url('background.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        #quote-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.7); /* White overlay with 70% opacity */
+            z-index: 1;
+        }
+
+        #quote, #author, #book, button {
+            position: relative;
+            z-index: 2; /* Ensure text and button are above the overlay */
+        }
+
+        #quote {
+            font-size: 1.5rem;
+            font-style: italic;
+            line-height: 1.6;
+            margin: 0 0 1rem 0;
+            color: #555;
+        }
+
+        #author {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+            margin: 0.5rem 0;
+        }
+
+        #book {
+            font-size: 1rem;
+            color: #777;
+            font-style: italic;
+            margin: 0.5rem 0;
+        }
+
+        button {
+            background-color: #ffc158;
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 1.5rem;
+        }
+
+        button:hover {
+            background-color: #ffc158;
+        }
+    </style>
+</head>
+<body>
+    <div id="quote-container">
+        <p id="quote">Loading quote...</p>
+        <p id="author"></p>
+        <p id="book"></p>
+        <button onclick="generateQuote()">ॐ</button>
+    </div>
+
+    <script>
+        let quotes = [];
+
+        // Load quotes from the JSON file
+        fetch('quotes.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok: ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(data => {
+                quotes = data;
+                console.log('Quotes loaded successfully:', quotes); // Debugging
+                generateQuote(); // Display a random quote as soon as the quotes are loaded
+            })
+            .catch(error => {
+                console.error('Error loading quotes:', error); // Debugging
+            });
+
+        function generateQuote() {
+            if (quotes.length === 0) {
+                console.error('No quotes available.'); // Debugging
+                document.getElementById('quote').textContent = 'Harē Krišna Harē Krišna Krišna Krišna Harē Harē Harē Rāma Harē Rāma Rāma Rāma Harē Harē';
+                return;
+            }
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const randomQuote = quotes[randomIndex];
+            console.log('Generated quote:', randomQuote); // Debugging
+            document.getElementById('quote').textContent = `"${randomQuote.quote}"`;
+            document.getElementById('author').textContent = `- ${randomQuote.author}`;
+            document.getElementById('book').textContent = randomQuote.book ? `${randomQuote.book}` : '';
+        }
+    </script>
+</body>
+</html>
