@@ -1,5 +1,4 @@
-{
-  "atziņas": [
+[
     {
         "quote": "Krišna ir galamērķis, bet Rādhārānī ir ceļš – bez Viņas žēlastības nav iespējams sasniegt Krišnu.",
         "author": "B.R.Šrīdhārs"
@@ -397,8 +396,6 @@
       "autors": "B.R. Šrīdhārs"
     },
     {
-  "atziņas": [
-    {
       "teksts": "Mīlestība nozīmē brīvprātīgu padevību augstākajam skaistumam.",
       "autors": "B.R. Šrīdhārs"
     },
@@ -599,4 +596,4 @@
       "autors": "B.R. Šrīdhārs"
     }    
 ]
-    }
+    
