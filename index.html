@@ -5,90 +5,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Quote Generator</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #fffff;
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
+       body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff; /* Corrected white background */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
 
-        #quote-container {
-            background-image: url('background.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            position: relative;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            width: 100%;
-            text-align: center;
-            overflow: hidden;
-            height: 300px; /* Fixed height */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
+#quote-container {
+    background-image: url('background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    height: 300px; /* Fixed height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box; /* Ensure padding doesn't affect layout */
+}
 
-        #quote-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(255, 255, 255, 0.7); /* White overlay with 70% opacity */
-            z-index: 1;
-        }
+#quote-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7); /* White overlay with 70% opacity */
+    z-index: 1;
+}
 
-        #quote, #author, #book, button {
-            position: relative;
-            z-index: 2; /* Ensure text and button are above the overlay */
-        }
+#quote, #author, #book, button {
+    position: relative;
+    z-index: 2; /* Ensure text and button are above the overlay */
+    margin: 0;
+}
 
-        #quote {
-            font-size: 1.5rem;
-            font-style: italic;
-            line-height: 1.4;
-            margin: 0 0 1rem 0;
-            color: #555;
-        }
+#quote {
+    font-size: 1.5rem;
+    font-style: italic;
+    line-height: 1.4;
+    color: #555;
+    overflow: hidden; /* Prevents text overflow */
+    text-overflow: ellipsis; /* Adds "..." if text is too long */
+    word-wrap: break-word; /* Wraps long words */
+}
 
-        #author {
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: #333;
-            margin: 0.5rem 0;
-        }
+#author {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0.5rem 0;
+}
 
-        #book {
-            font-size: 1rem;
-            color: #777;
-            font-style: italic;
-            margin: 0.5rem 0;
-        }
+#book {
+    font-size: 1rem;
+    color: #777;
+    font-style: italic;
+    margin: 0.5rem 0;
+}
 
-        button {
-            background-color: #ffc158;
-            color: #fff;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            font-size: 2rem;
-            border-radius: 3px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-top: 1.5rem;
-        }
+button {
+    background-color: #ffc158;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem; /* Smaller padding */
+    font-size: 1.5rem; /* Smaller text size */
+    border-radius: 50%; /* Make the button round */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1.5rem;
+    width: 50px; /* Set a fixed width */
+    height: 50px; /* Set a fixed height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        button:hover {
-            background-color: #ffc158;
-        }
+button:hover {
+    background-color: #e8a400; /* Darker shade for hover effect */
+}
+
+button:focus {
+    outline: none; /* Remove the focus outline */
+}
     </style>
 </head>
 <body>
