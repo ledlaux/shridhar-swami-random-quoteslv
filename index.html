@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Quote Generator</title>
-    <!-- Link to Google Fonts for handwritten style -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Link to Google Fonts for a more elegant style -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
             color: #333;
             display: flex;
             justify-content: center;
@@ -18,93 +18,98 @@
             margin: 0;
         }
 
-   #quote-container {
-    background-image: url('background.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    width: 100%;
-    text-align: center;
-    overflow: hidden;
-    height: 300px; /* Fixed height */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    box-sizing: border-box;
-}
+        #quote-container {
+            background-image: url('background.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            overflow: hidden;
+            height: 350px; /* Slightly taller for better spacing */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
 
-#quote-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(255, 255, 255, 0.7); /* 70% opacity for the white overlay */
-    z-index: 1; /* Overlay on top of the background image */
-}
+        #quote-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.8); /* Slightly lighter overlay */
+            z-index: 1;
+        }
 
-#quote, #author, #book, button {
-    position: relative;
-    z-index: 2;
-    margin: 0;
-}
+        #quote, #author, #book, button {
+            position: relative;
+            z-index: 2;
+            margin: 0;
+        }
 
-#quote {
-    font-size: 1.3rem;
-    font-style: italic;
-    line-height: 1.4;
-    color: #555;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    word-wrap: break-word;
-    margin-bottom: 10px; /* Adjust space between quote and author */
-}
+        #quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            line-height: 1.6;
+            color: #444;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-wrap: break-word;
+            margin-bottom: 1rem; /* More space for better readability */
+        }
 
-#author {
-    font-size: 1rem;
-    font-weight: bold;
-    color: #333;
-    margin: 0.5rem 0;
-}
+        #author {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #222;
+            margin: 0.5rem 0;
+        }
 
-#book {
-    font-size: 0.9rem;
-    color: #777;
-    font-style: italic;
-    margin: 0.5rem 0;
-}
+        #book {
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.95rem;
+            color: #666;
+            font-style: italic;
+            margin: 0.5rem 0;
+        }
 
-button {
-    background-color: #ffc158;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem; 
-    font-size: 1.5rem;
-    border-radius: 50%; 
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 5px; /* Reduced margin to move button closer to text */
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        button {
+            background-color: #ffc158;
+            color: #fff;
+            border: none;
+            padding: 0.75rem;
+            font-size: 1.75rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 1rem;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
-button:hover {
-    background-color: #e8a400;
-}
+        button:hover {
+            background-color: #e8a400;
+            transform: scale(1.1); /* Slight zoom effect on hover */
+        }
 
-button:focus {
-    outline: none;
-}
+        button:focus {
+            outline: none;
+        }
     </style>
 </head>
 <body>
