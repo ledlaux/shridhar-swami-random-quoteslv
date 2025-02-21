@@ -18,7 +18,7 @@
             margin: 0;
         }
 
-     #quote-container {
+    #quote-container {
     background-image: url('background.png');
     background-size: cover;
     background-position: center;
@@ -31,33 +31,21 @@
     width: 100%;
     text-align: center;
     overflow: hidden;
-    height: 350px; /* Increased height to give more space for text */
+    height: 300px; /* Fixed height */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Push text to the top */
+    justify-content: flex-end; /* Align content to the bottom */
     align-items: center;
-    box-sizing: border-box;
-}
-
-#quote-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(255, 255, 255, 0.7); /* 70% opacity for the white overlay */
-    z-index: 1; /* Overlay on top of the background image */
+    box-sizing: border-box; /* Ensure padding doesn't affect layout */
 }
 
 #quote, #author, #book, button {
     position: relative;
-    z-index: 2; /* Ensure text and button are above the overlay */
+    z-index: 2;
     margin: 0;
 }
 
 #quote {
-    font-family: 'Dancing Script', cursive; /* Handwritten font */
     font-size: 1.3rem;
     font-style: italic;
     line-height: 1.4;
@@ -65,23 +53,17 @@
     overflow: hidden;
     text-overflow: ellipsis;
     word-wrap: break-word;
-    margin-bottom: 15px; /* More space between quote and author */
-    padding-bottom: 20px; /* Space to prevent the quote text from overflowing */
+    margin-bottom: 10px; /* Adjust space between quote and author */
 }
 
 #author {
-    font-family: 'Dancing Script', cursive; /* Handwritten font */
-    font-size: 0.8rem; /* Smaller font size */
+    font-size: 1rem;
     font-weight: bold;
     color: #333;
-    position: absolute;
-    top: 10px; /* Positioned at the top */
-    left: 10px; /* Positioned at the left corner */
-    margin: 0;
+    margin: 0.5rem 0;
 }
 
 #book {
-    font-family: 'Dancing Script', cursive; /* Handwritten font */
     font-size: 0.9rem;
     color: #777;
     font-style: italic;
@@ -92,13 +74,12 @@ button {
     background-color: #ffc158;
     color: #fff;
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1rem; 
     font-size: 1.5rem;
-    border-radius: 50%;
+    border-radius: 50%; 
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: auto; /* Push button to the bottom */
-    margin-bottom: 10px; /* Space from bottom */
+    margin-top: 5px; /* Reduced margin to move button closer to text */
     width: 50px;
     height: 50px;
     display: flex;
