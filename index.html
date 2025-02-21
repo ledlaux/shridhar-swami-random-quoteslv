@@ -150,7 +150,7 @@
             const randomQuote = quotes[randomIndex];
             console.log('Generated quote:', randomQuote); // Debugging
             document.getElementById('quote').textContent = `"${randomQuote.quote}"`;
-            document.getElementById('author').textContent = `- ${randomQuote.author}`;
+            document.getElementById('author').textContent = ` ${randomQuote.author}`;
             document.getElementById('book').textContent = randomQuote.book ? `${randomQuote.book}` : '';
         }
     </script>
