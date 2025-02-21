@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Quote Generator</title>
     <style>
-     body {
+    body {
     font-family: 'Arial', sans-serif;
     background-color: #ffffff; /* Corrected white background */
     color: #333;
@@ -37,25 +37,15 @@
     box-sizing: border-box; /* Ensure padding doesn't affect layout */
 }
 
-#quote-container {
-    background-image: url('background.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    width: 100%;
-    text-align: center;
-    overflow: hidden;
-    height: 300px; /* Fixed height */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end; /* Align content to the bottom */
-    align-items: center;
-    box-sizing: border-box; /* Ensure padding doesn't affect layout */
+#quote-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7); /* White overlay with 70% opacity */
+    z-index: 1;
 }
 
 #quote, #author, #book, button {
